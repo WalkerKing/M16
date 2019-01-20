@@ -1,3 +1,8 @@
+# M16
+M16与blunderbuss项目类似，有别与blunderbuss，这是一个专题学习项目
+
+
+```
 {
   "name": "m16",
   "version": "1.0.0",
@@ -17,3 +22,5 @@
   },
   "homepage": "https://github.com/WalkerKing/M16#readme"
 }
+
+```
