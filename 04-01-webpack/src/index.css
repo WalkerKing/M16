@@ -1,0 +1,18 @@
+body {
+    color: green;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    background: url('./images/tiger.png');
+    background-size: cover;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    transform: translateX(100px);
+    background: #345564;
+}
+

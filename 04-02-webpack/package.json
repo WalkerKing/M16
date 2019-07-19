@@ -1,0 +1,22 @@
+{
+    "name": "04-02-webpack",
+    "version": "1.0.0",
+    "description": "构建一个react webpack配置,webpack常用的优化方法",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --mode development"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.5"
+    }
+}
