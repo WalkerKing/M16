@@ -1,1 +1,2 @@
-console.log('Hello')
+const m = require('./msg')
+console.log(`Hello ${m}`)
