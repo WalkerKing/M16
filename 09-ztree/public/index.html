@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <link rel="stylesheet" href="../node_modules/ztree/css/zTreeStyle/zTreeStyle.css">
+  <title>09-ztree</title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but 09-ztree doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <input type="text" id="searchTxt"> 
+  <button type="button" id="searchBtn">搜索</button>
+  <div id="app" class="ztree"></div>
+  <!-- built files will be auto injected -->
+
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../node_modules/ztree/js/jquery.ztree.all.js"></script>
+  <script src="treeListData.js"></script>
+  <script>
+
+    var ztreeSetting = {
+      check: {
+        enable: true,
+        chkDisabled: true
+      },
+      data: {
+        // simpleData: {
+        //     enable: true,
+        // },
+        // key: {
+        //     children: 'childrenList',
+        //     // name: 'carnum',
+        //     name: 'title',
+        // },
+      },
+      view: {
+        showIcon: false,
+        nameIsHTML: true,
+        showTitle: false,
+        txtSelectedEnable: false,
+        fontCss: {
+          cursor: 'default'
+        }
+      }
+    };
+    $(function () {
+      var ztreeObj = $.fn.zTree.init(
+        $('#app'),
+        ztreeSetting,
+        treeListData
+      );
+      $('#searchBtn').on('click', function() {
+        var searchTxt = $('#searchTxt').val();
+        var nodes = ztreeObj.getNodesByParam('name', searchTxt);
+        console.log(nodes)
+        ztreeObj.expandNode(nodes[0])
+
+        var rootNode = ztreeObj.getNodesByParam('name', '根节点')[0];
+        var childNode1 = ztreeObj.getNodesByParam('name', '父节点1 - 展开')[0];
+        var childNode2 = ztreeObj.getNodesByParam('name', '父节点11 - 折叠')[0];
+        var childNode3 = ztreeObj.getNodesByParam('name', '叶子节点121')[0];
+
+        // ztreeObj.expandNode(rootNode, true, )
+        // ztreeObj.expandNode(childNode1,  true, )
+        // ztreeObj.expandNode(childNode2, true, )
+
+        ztreeObj.selectNode(childNode3)
+      });
+    });
+  </script>
+</body>
+
+</html>
