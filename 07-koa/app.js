@@ -26,6 +26,7 @@ app.use(m3())
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
+app.use(pv())
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
@@ -42,10 +43,10 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
-mongoose.connect(dbConfig.dbs, {
-    userNewUrlParser: true
-})
-// routes
+// mongoose.connect(dbConfig.dbs, {
+//     userNewUrlParser: true
+// })
+// // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 

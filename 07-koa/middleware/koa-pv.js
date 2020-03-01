@@ -1,5 +1,5 @@
 const pv = function (ctx) {
-    global.console.log(ctx.path) 
+    global.console.log('pv', ctx.path) 
 
 }
 
